@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#591c31">
+  <meta name="description" content="Aprenda a usar o aplicativo Isabele Mariana Nails com tutoriais visuais e interativos.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; base-uri 'none'; connect-src 'none'; form-action 'none'; frame-src 'none'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; object-src 'none'">
+  <title>Guia Interativo | Isabele Mariana Nails</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="site-brand" aria-label="Isabele Mariana Nails">
+        <span class="brand-mark">IM</span>
+        <span class="brand-copy"><strong>Isabele Mariana</strong><small>NAILS DESIGN</small></span>
+      </div>
+      <span class="header-tag"><span class="status-dot"></span> Central de ajuda</span>
+    </header>
+
+    <main class="layout" id="mainContent">
+      <section class="intro" id="intro">
+        <div class="eyebrow"><span class="eyebrow-line"></span> GUIA INTERATIVO</div>
+        <h1>Aprenda a usar o aplicativo, <em>um toque de cada vez.</em></h1>
+        <p class="intro-lead">Escolha o que deseja aprender e acompanhe as orientações diretamente nas telas do aplicativo. Toque nos botões destacados para praticar.</p>
+        <div class="privacy-note" role="note">
+          <span class="privacy-icon" aria-hidden="true">✦</span>
+          <p><strong>Ambiente ilustrativo e seguro.</strong> Nenhum dado é salvo. Não há login, reserva ou pagamento real.</p>
+        </div>
+        <div class="tutorial-section-title">
+          <div><span class="eyebrow">ESCOLHA UM ASSUNTO</span><h2>O que vamos aprender?</h2></div>
+          <span class="topic-count">5 tutoriais</span>
+        </div>
+        <div class="topics" id="topicGrid"></div>
+      </section>
+
+      <section class="tutorial-view" id="tutorialView" hidden aria-label="Tutorial interativo">
+        <div class="tutorial-heading">
+          <button type="button" id="backToHome" class="quiet-button"><span aria-hidden="true">←</span> Todos os tutoriais</button>
+          <div class="eyebrow">PASSO A PASSO GUIADO</div>
+          <h1 id="tutorialTitle">Tutorial</h1>
+          <p id="tutorialDescription"></p>
+          <div class="progress-caption"><strong id="stepCounter">Passo 1 de 7</strong><span>Toque no item destacado</span></div>
+          <div class="progress-track" id="progressTrack" role="progressbar" aria-label="Progresso" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progressFill"></span></div>
+        </div>
+
+        <div class="interactive-layout">
+          <div class="device-area">
+            <div class="device-caption"><span class="caption-ring"></span> TELA SIMULADA DO APLICATIVO</div>
+            <div class="phone-device">
+              <div class="phone-top"><span class="phone-speaker"></span></div>
+              <div class="phone-frame" id="phoneFrame">
+                <div class="phone-scroll" id="phoneScroll" aria-live="polite"></div>
+                <div class="coach-bubble" id="coachBubble" role="note"><span class="coach-number" id="bubbleNumber">1</span><span id="bubbleText"></span></div>
+              </div>
+              <div class="phone-bottom"><span></span></div>
+            </div>
+            <div class="device-hint"><span aria-hidden="true">☝</span> Toque no botão iluminado para continuar</div>
+          </div>
+
+          <div class="instructions">
+            <div class="instructions-label">SUA MISSÃO AGORA</div>
+            <div class="instructions-number" id="instructionNumber">01</div>
+            <h2 id="instructionTitle">Escolha uma opção</h2>
+            <p id="instructionBody"></p>
+            <div class="action-card"><span aria-hidden="true">✦</span><span id="instructionAction">O botão correto está destacado em vinho.</span></div>
+            <div class="control-row">
+              <button type="button" id="previousStep" class="button-secondary">← Anterior</button>
+              <button type="button" id="nextStep" class="button-primary">Próximo →</button>
+            </div>
+            <div class="control-row control-row--sub">
+              <button type="button" id="restartTutorial" class="text-button">↺ Reiniciar tutorial</button>
+              <span class="privacy-mini">100% simulado</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="complete-view" id="completeView" hidden aria-live="polite">
+        <span class="completion-icon" aria-hidden="true">✓</span>
+        <div class="eyebrow">TUTORIAL CONCLUÍDO</div>
+        <h2>Pronto! Você já conhece esse caminho. 💅</h2>
+        <p>Você percorreu uma simulação guiada do aplicativo. Nenhuma operação real foi realizada.</p>
+        <div class="complete-actions">
+          <button type="button" id="replayTutorial" class="button-secondary">Repetir tutorial</button>
+          <button type="button" id="finishTutorial" class="button-primary">Ver outros tutoriais →</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Isabele Mariana Nails · Guia Interativo</span>
+      <span>Sem login, PIX real ou conexão com a agenda</span>
+    </footer>
+  </div>
+</body>
+</html>
