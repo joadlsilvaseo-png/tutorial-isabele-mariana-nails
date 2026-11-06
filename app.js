@@ -133,7 +133,7 @@ function screenBooking(step){
  '<div class="mock-card"><span class="mock-eyebrow">Reserve seu horário</span><h3>Escolha a melhor data para você</h3><p>Selecione a data e depois escolha um dos horários disponíveis.</p>'+
  stepHeader("1","Data","Escolha o dia")+
  '<div class="mock-section-heading"><span class="mock-eyebrow">Novembro de 2026</span><span class="mock-count">Mês atual</span></div>'+days(hasDay,false)+
- '<p class="mock-inline-help" style="margin-top:9px">Datas fictícias para o tutorial.</p>'+
+ '<p class="mock-inline-help mock-mt-9">Datas fictícias para o tutorial.</p>'+
  '<div class="mock-line"></div>'+stepHeader("2","Horário","Escolha um horário")+
  '<p class="mock-inline-help">Disponível / Ocupado</p>'+times(hasTime,false)+
  '<div class="mock-line"></div>'+stepHeader("3","Seus dados","Finalize sua reserva")+
@@ -146,15 +146,15 @@ function screenBooking(step){
 function screenPix(){
  return '<div class="mock-page">'+subNav("Pagamento PIX")+
  '<main class="mock-content"><div class="mock-payment-head"><span class="mock-eyebrow">Sinal para reserva</span><h3>Pagamento PIX</h3><p>No aplicativo real, pague o sinal para confirmar o agendamento.</p></div>'+
- '<div class="mock-card" style="text-align:center"><span class="mock-eyebrow">Cobrança ilustrativa</span><div class="fake-qr" aria-label="Imagem fictícia não escaneável"></div>'+
- '<strong style="display:block;font-size:12px">QR Code fictício</strong><p style="margin-top:7px">Nenhum QR Code válido foi gerado.</p><div class="mock-field">Código PIX não disponível neste tutorial</div></div>'+
+ '<div class="mock-card mock-center"><span class="mock-eyebrow">Cobrança ilustrativa</span><div class="fake-qr" aria-label="Imagem fictícia não escaneável"></div>'+
+ '<strong class="mock-block-title">QR Code fictício</strong><p class="mock-mt-7">Nenhum QR Code válido foi gerado.</p><div class="mock-field">Código PIX não disponível neste tutorial</div></div>'+
  '<div class="mock-notice"><strong>Regras para Sinal:</strong> o aplicativo real informa as condições do pagamento, do cancelamento e do reagendamento.</div>'+
  '<button class="mock-primary" data-tour="pix-understood" type="button">Entendi · Continuar tutorial</button></main></div>';
 }
 function screenConfirmation(){
  return '<div class="mock-page">'+subNav("Confirmação")+
- '<main class="mock-content" style="text-align:center"><div class="mock-check">✓</div><span class="mock-eyebrow">Exemplo de confirmação</span><h3>É assim que você acompanha a confirmação</h3><p>O aplicativo real exibe a situação após validar o sinal PIX ou uma condição de isenção.</p>'+
- '<div class="mock-summary" style="text-align:left"><span class="mock-eyebrow">Atendimento demonstrativo</span><strong>Blindagem</strong><small>12/11/2026 · 14h30 · Cliente Exemplo</small></div>'+
+ '<main class="mock-content mock-center"><div class="mock-check">✓</div><span class="mock-eyebrow">Exemplo de confirmação</span><h3>É assim que você acompanha a confirmação</h3><p>O aplicativo real exibe a situação após validar o sinal PIX ou uma condição de isenção.</p>'+
+ '<div class="mock-summary mock-left"><span class="mock-eyebrow">Atendimento demonstrativo</span><strong>Blindagem</strong><small>12/11/2026 · 14h30 · Cliente Exemplo</small></div>'+
  '<div class="mock-notice"><strong>Simulação apenas:</strong> nenhum atendimento foi agendado e nenhum pagamento aconteceu.</div>'+
  '<button type="button" class="mock-primary" data-tour="final-done">Concluir tutorial</button></main></div>';
 }
@@ -164,9 +164,9 @@ function profileFilters(){
 }
 function screenProfile(){
  return '<div class="mock-page">'+subNav("Meu Perfil")+
- '<main class="mock-content"><div class="mock-card"><span class="mock-eyebrow">Minha conta</span><div class="mock-profile-info"><div><p style="margin:0">Seja bem-vinda</p><h3>Cliente Exemplo</h3></div><div class="avatar">CE</div></div>'+
- '<button type="button" class="mock-link" style="margin-top:12px" data-tour="profile-contact">Dados de contato · telefone e e-mail</button>'+
- '<p style="margin:9px 0 0">Nenhuma informação real é utilizada.</p></div>'+
+ '<main class="mock-content"><div class="mock-card"><span class="mock-eyebrow">Minha conta</span><div class="mock-profile-info"><div><p class="mock-m-0">Seja bem-vinda</p><h3>Cliente Exemplo</h3></div><div class="avatar">CE</div></div>'+
+ '<button type="button" class="mock-link mock-mt-12" data-tour="profile-contact">Dados de contato · telefone e e-mail</button>'+
+ '<p class="mock-mt-9">Nenhuma informação real é utilizada.</p></div>'+
  '<div class="mock-card"><span class="mock-eyebrow">Cuidado com suas unhas</span><h3>Sua próxima manutenção</h3><p>Após aplicação de gel, uma sugestão pode ser apresentada para 21 dias depois.</p>'+
  '<div class="mock-summary"><strong>Sugestão de manutenção</strong><small>21 dias após a aplicação · apenas exemplo</small></div>'+
  '<button class="mock-link" type="button" data-tour="profile-maintenance">+ Agendar manutenção</button></div>'+
@@ -174,7 +174,7 @@ function screenProfile(){
  '<p>Acompanhe seus agendamentos e consulte seu histórico.</p>'+
  '<button type="button" class="mock-link" data-tour="profile-new">+ Novo Agendamento</button>'+
  profileFilters()+
- '<div class="mock-appointment"><span class="mock-pill">Agendado</span><strong style="display:block">Blindagem</strong><small>Quinta-feira, 12/11 · 14h30 · 1h30min</small><div class="mock-actions"><button type="button" data-tour="appointment-details">Ver detalhes</button><button type="button" class="primary" data-tour="appointment-reschedule">Reagendar</button></div></div></div></main>'+tabNav("Perfil")+'</div>';
+ '<div class="mock-appointment"><span class="mock-pill">Agendado</span><strong class="mock-block">Blindagem</strong><small>Quinta-feira, 12/11 · 14h30 · 1h30min</small><div class="mock-actions"><button type="button" data-tour="appointment-details">Ver detalhes</button><button type="button" class="primary" data-tour="appointment-reschedule">Reagendar</button></div></div></div></main>'+tabNav("Perfil")+'</div>';
 }
 function screenEdit(step){
  const phase=step.phase||"date",hasDay=phase!=="date",hasTime=phase==="confirm";
