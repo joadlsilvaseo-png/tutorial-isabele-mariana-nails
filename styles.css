@@ -244,3 +244,7 @@ repeating-linear-gradient(0deg,transparent 0 7px,rgba(56,27,42,.83) 8px 11px,tra
 .mock-left{text-align:left}
 .mock-block{display:block}
 .mock-block-title{display:block;font-size:12px}
+
+/* Identidade original: arquivos de imagem estaticos e locais. */
+.official-logo{width:69px;height:51px;object-fit:contain;display:block;flex-shrink:0}
+.mock-official-logo{display:block;width:155px;height:109px;object-fit:contain;margin:0 auto 24px}
