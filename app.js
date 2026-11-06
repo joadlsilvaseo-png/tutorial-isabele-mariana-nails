@@ -81,7 +81,7 @@ function tabNav(active){
 }
 function screenLogin(){
   return '<div class="mock-page mock-login">'+
-   '<div class="mock-wordmark">IM</div><div class="mock-wordmark-sub">ISABELE MARIANA<br>NAILS DESIGN</div>'+
+   '<img class="mock-official-logo" src="./assets/logo-isabele-mariana.png" alt="Isabele Mariana Nails" width="155" height="109">'+
    '<span class="mock-eyebrow">Área da cliente</span><h2>Bem-vinda de volta.</h2>'+
    '<p>Entre na sua conta para acessar seus agendamentos.</p>'+
    '<span class="mock-label">E-mail</span><div class="mock-field">✉ &nbsp; seu@email.com</div>'+
