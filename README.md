@@ -67,3 +67,31 @@ As simulações mostram datas, nomes, preços e horários exemplificativos, não
 - Conferir a grade ilustrativa de horários a cada 15 minutos.
 - Testar instalação e reabertura offline; verificar cache e atualização em nova implantação.
 - Confirmar que a página não faz chamadas externas e não processa pagamentos reais.
+
+
+## Fase 2 — Experiência da cliente
+
+A central mantém os cinco tutoriais anteriores e adiciona sete novos assuntos da jornada da cliente:
+cadastro e acesso (incluindo Google), recuperação de senha, instalação no Android/iPhone,
+cancelamento de agendamento, situações do PIX (pendência, crédito, expiração e análise),
+notificações e edição da foto de perfil.
+
+- Busque por título, descrição ou assunto usando o campo de pesquisa.
+- Filtre por Agendamentos, PIX, Conta, Meu Perfil, Notificações ou Instalação.
+- Cada tutorial tem link próprio via `#tutorial=ID`, que pode ser copiado e compartilhado.
+- Filtros, andamento e telas fictícias existem apenas em memória; a URL não contém dados pessoais.
+- Nenhuma foto é selecionada, nenhuma permissão é solicitada, nenhum e-mail é enviado,
+  nenhum agendamento é cancelado e nenhum PIX é processado.
+- Os exemplos reproduzem o funcionamento conhecido do app principal, mas não substituem
+  os Termos de Uso e a confirmação das operações reais.
+- O cache do PWA foi versionado para `guia-isabele-static-v2`, permitindo atualização
+  dos novos conteúdos quando o site for aberto online.
+
+### Roteiro de validação
+
+1. Use busca e categorias; verifique filtros sem resultados e limpeza.
+2. Abra os 12 tutoriais e siga cada etapa com o toque realçado.
+3. Copie o link, abra em nova aba e valide o histórico de navegação do navegador.
+4. Teste cadastro, senha, instalação, cancelamento, os quatro estados do PIX, notificações e foto.
+5. Repita os testes em tela pequena e offline após uma primeira abertura com internet.
+6. Verifique que não existem formulários enviados nem chamadas de rede para o app real.

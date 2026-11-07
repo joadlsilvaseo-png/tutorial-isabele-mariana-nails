@@ -39,9 +39,16 @@
         </div>
         <div class="tutorial-section-title">
           <div><span class="eyebrow">ESCOLHA UM ASSUNTO</span><h2>O que vamos aprender?</h2></div>
-          <span class="topic-count" id="topicCount">5 tutoriais</span>
+          <span class="topic-count" id="topicCount">12 tutoriais</span>
         </div>
+        <section class="topic-toolbar" aria-label="Encontre um tutorial">
+          <label class="search-label" for="topicSearch">Buscar um tutorial</label>
+          <input class="topic-search" id="topicSearch" type="search" placeholder="Ex.: PIX, cancelar, senha, notificações..." autocomplete="off">
+          <div class="topic-filters" id="topicFilters" role="group" aria-label="Filtrar tutoriais por assunto"></div>
+          <p class="topic-result-count" id="topicResultCount" role="status" aria-live="polite"></p>
+        </section>
         <div class="topics" id="topicGrid"></div>
+        <p class="topic-empty" id="topicEmpty" hidden>Nenhum tutorial encontrado. Tente outro termo ou selecione “Todos”.</p>
       </section>
 
       <section class="tutorial-view" id="tutorialView" hidden aria-label="Tutorial interativo">
@@ -50,6 +57,10 @@
           <div class="eyebrow">PASSO A PASSO GUIADO</div>
           <h1 id="tutorialTitle">Tutorial</h1>
           <p id="tutorialDescription"></p>
+          <div class="tutorial-share">
+            <button type="button" id="shareTutorial" class="button-secondary">Copiar link deste tutorial</button>
+            <span id="shareFeedback" role="status" aria-live="polite"></span>
+          </div>
           <div class="progress-caption"><strong id="stepCounter">Passo 1 de 7</strong><span>Toque no item destacado</span></div>
           <div class="progress-track" id="progressTrack" role="progressbar" aria-label="Progresso" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progressFill"></span></div>
         </div>
@@ -91,6 +102,7 @@
         <div class="eyebrow">TUTORIAL CONCLUÍDO</div>
         <h2>Pronto! Você já conhece esse caminho. 💅</h2>
         <p>Você percorreu uma simulação guiada do aplicativo. Nenhuma operação real foi realizada.</p>
+        <p class="complete-help">Você pode compartilhar este tutorial com outras clientes e revisitá-lo quando quiser.</p>
         <div class="complete-actions">
           <button type="button" id="replayTutorial" class="button-secondary">Repetir tutorial</button>
           <button type="button" id="finishTutorial" class="button-primary">Ver outros tutoriais →</button>

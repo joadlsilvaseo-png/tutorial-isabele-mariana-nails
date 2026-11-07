@@ -1,7 +1,7 @@
 "use strict";
 
 /* Guia Isabele: cache próprio, sem compartilhar dados ou recursos do app de produção. */
-const CACHE_NAME = "guia-isabele-static-v1";
+const CACHE_NAME = "guia-isabele-static-v2";
 const CORE_ASSETS = [
   "./",
   "./index.html",
