@@ -16,9 +16,9 @@ const TOPICS = [
       {screen:"services", target:"service-blindagem", title:"Selecione um serviço", body:"Leia a descrição, confira o valor e a duração do procedimento antes de continuar.", tip:"Toque no card Blindagem para selecioná-lo."},
       {screen:"services", selected:true, target:"continue-service", title:"Continue para a agenda", body:"Depois de marcar o procedimento, use o botão que leva ao calendário de agendamento.", tip:"Toque em Continuar para agendamento."},
       {screen:"booking", phase:"date", target:"booking-day", title:"Escolha a data", body:"O aplicativo real mostra os dias permitidos pelas regras da profissional. A data nesta tela é apenas um exemplo fictício.", tip:"Toque na quinta-feira, dia 12."},
-      {screen:"booking", phase:"time", target:"booking-time", title:"Escolha seu horário", body:"Os horários reais dependem do serviço, das reservas existentes, dos bloqueios e dos intervalos de segurança. Aqui os horários são ilustrativos.", tip:"Toque em 14h30 para continuar."},
-      {screen:"booking", phase:"confirm", target:"booking-confirm", title:"Confira a reserva", body:"No aplicativo real, a cliente confere os dados e pode informar comentários adicionais antes da confirmação.", tip:"Toque em Confirmar agendamento (simulação)."},
-      {screen:"pix", target:"pix-understood", title:"Entenda o sinal PIX", body:"Se a reserva exigir sinal, o aplicativo real apresenta uma cobrança PIX. Neste tutorial, não existe QR Code válido, cobrança ou movimentação de dinheiro.", tip:"Toque em Entendi para conhecer a próxima etapa."},
+      {screen:"booking", phase:"time", target:"booking-time", title:"Escolha seu horário", body:"O app exibe inícios possíveis a cada 15 minutos, respeitando a duração do serviço, os horários já ocupados, os bloqueios e as regras de cada dia. Aqui os horários são ilustrativos.", tip:"Toque em 14h30 para continuar."},
+      {screen:"booking", phase:"confirm", target:"booking-confirm", title:"Confira a reserva", body:"No aplicativo real, confira serviço, data e horário. Você também pode informar comentários adicionais. Quando houver sinal, revise o valor antes de gerar o PIX.", tip:"Toque em Confirmar agendamento (simulação)."},
+      {screen:"pix", target:"pix-understood", title:"Entenda o sinal PIX", body:"O sinal é descontado do total do serviço. No aplicativo real, confira o valor do serviço, o sinal e quanto restará para pagar no atendimento. Aqui nenhum PIX é gerado.", tip:"Toque em Entendi para conhecer a próxima etapa."},
       {screen:"confirmation", target:"final-done", title:"Saiba quando a reserva foi confirmada", body:"O aplicativo real confirma após validar o pagamento ou a isenção. Esta tela é uma ilustração, não é um agendamento efetivado.", tip:"Toque em Concluir tutorial."}
     ]
   },
@@ -26,9 +26,9 @@ const TOPICS = [
     id:"pix", icon:"◇", title:"Como funciona o sinal PIX?",
     description:"Entenda a cobrança do sinal, o QR Code e a confirmação do agendamento.",
     steps:[
-      {screen:"booking", phase:"confirm", target:"booking-confirm", title:"Revise a reserva", body:"Ao terminar a escolha do serviço e horário, a cliente confere os dados antes de seguir para o sinal, quando ele for exigido.", tip:"Toque em Confirmar agendamento (simulação)."},
-      {screen:"pix", target:"pix-understood", title:"Conheça a tela de pagamento", body:"Na versão real, o QR Code e a opção de copiar PIX representam uma cobrança válida. Nesta simulação mostramos apenas onde ficam essas informações.", tip:"Toque em Entendi. Não há pagamento aqui."},
-      {screen:"confirmation", target:"final-done", title:"Entenda a confirmação", body:"O pagamento real é verificado automaticamente antes de confirmar a reserva. O tutorial não simula recebimento de dinheiro.", tip:"Toque em Concluir tutorial."}
+      {screen:"booking", phase:"confirm", target:"booking-confirm", title:"Revise a reserva", body:"Antes de gerar o PIX, o app apresenta o preço do serviço, o sinal exigido e o restante para pagar no atendimento. A reserva temporária tem prazo para pagamento.", tip:"Toque em Confirmar agendamento (simulação)."},
+      {screen:"pix", target:"pix-understood", title:"Conheça a tela de pagamento", body:"No app real, você pode escanear o QR Code ou usar PIX Copia e Cola. Consulte também as regras de 24 horas: cancelamentos e reagendamentos respeitam as condições dos Termos de Uso.", tip:"Toque em Entendi. Não há pagamento aqui."},
+      {screen:"confirmation", target:"final-done", title:"Entenda a confirmação", body:"Depois do pagamento, aguarde a confirmação automática. Se houver erro, consulte a situação antes de tentar pagar novamente. Aqui não ocorre nenhum pagamento.", tip:"Toque em Concluir tutorial."}
     ]
   },
   {
@@ -37,10 +37,10 @@ const TOPICS = [
     steps:[
       {screen:"home", target:"profile-tab", title:"Abra o Meu Perfil", body:"Se você já tem um agendamento, o primeiro passo é entrar na área onde ele aparece.", tip:"Toque em Perfil na barra inferior."},
       {screen:"profile", target:"filter-agendados", title:"Encontre seu agendamento", body:"A seção Meus atendimentos organiza as reservas por status. Comece pela aba Agendados.", tip:"Toque em Agendados."},
-      {screen:"profile", target:"appointment-reschedule", title:"Escolha Reagendar", body:"No app real, o reagendamento exige disponibilidade para a mesma duração e respeita bloqueios, buffers e regras do dia.", tip:"Toque em Reagendar no atendimento fictício."},
+      {screen:"profile", target:"appointment-reschedule", title:"Escolha Reagendar", body:"No app real, o reagendamento depende da disponibilidade para a duração do serviço e das regras do dia. Confira a política de antecedência de 24 horas.", tip:"Toque em Reagendar no atendimento fictício."},
       {screen:"edit", phase:"date", target:"reschedule-day", title:"Escolha um novo dia", body:"O sistema real só aceita datas permitidas e disponíveis. A reserva anterior continua protegida durante a validação.", tip:"Toque no dia 19 da simulação."},
-      {screen:"edit", phase:"time", target:"reschedule-time", title:"Selecione um novo horário", body:"A duração do serviço e as condições da agenda são verificadas novamente. O sinal já pago permanece vinculado ao agendamento.", tip:"Toque no horário 15h30."},
-      {screen:"edit", phase:"confirm", target:"reschedule-confirm", title:"Confirme a mudança", body:"Na operação real, o aplicativo precisa validar e sincronizar a alteração antes de apresentar o sucesso.", tip:"Toque em Confirmar reagendamento (simulação)."}
+      {screen:"edit", phase:"time", target:"reschedule-time", title:"Selecione um novo horário", body:"O sistema verifica novamente a duração e a disponibilidade. Quando a operação com PIX pago estiver habilitada e for autorizada, o sinal já pago continua vinculado ao agendamento, sem uma nova cobrança.", tip:"Toque no horário 15h30."},
+      {screen:"edit", phase:"confirm", target:"reschedule-confirm", title:"Confirme a mudança", body:"No app real, a mudança só é concluída após validação e sincronização. Se houver erro ou solicitação pendente, não considere o horário alterado sem confirmação.", tip:"Toque em Confirmar reagendamento (simulação)."}
     ]
   },
   {
@@ -48,19 +48,19 @@ const TOPICS = [
     description:"Explore dados cadastrais, sugestões de manutenção e as opções da sua agenda.",
     steps:[
       {screen:"home", target:"profile-tab", title:"Entre no Meu Perfil", body:"O Perfil reúne informações da conta, atalhos e os atendimentos cadastrados.", tip:"Toque em Perfil na navegação inferior."},
-      {screen:"profile", target:"profile-contact", title:"Veja seus dados", body:"Aqui ficam as informações de contato da cliente. Os dados exibidos nesta simulação são inventados e não são editáveis.", tip:"Toque no bloco Dados de contato para conhecer a seção."},
-      {screen:"profile", target:"profile-maintenance", title:"Veja a sugestão de manutenção", body:"Após serviços de gel elegíveis, o aplicativo pode sugerir manutenção em 21 dias, como referência e não como obrigação.", tip:"Toque em Agendar manutenção (ilustrativo)."},
-      {screen:"profile", target:"profile-new", title:"Crie outro agendamento", body:"O botão Novo Agendamento leva a cliente de volta à escolha de procedimentos.", tip:"Toque em Novo Agendamento."}
+      {screen:"profile", target:"profile-contact", title:"Veja seus dados", body:"O app mostra celular e e-mail da cliente para consulta. Também é possível atualizar a foto de perfil, com ajuste de recorte e zoom; este exemplo não usa dados reais.", tip:"Toque no bloco Dados de contato para conhecer a seção."},
+      {screen:"profile", target:"profile-maintenance", title:"Veja a sugestão de manutenção", body:"Depois que uma aplicação de gel elegível é concluída, o app pode sugerir uma manutenção para 21 dias depois. A data é indicativa e depende da disponibilidade.", tip:"Toque em Agendar manutenção (ilustrativo)."},
+      {screen:"profile", target:"profile-new", title:"Crie outro agendamento", body:"O botão Novo Agendamento leva à escolha de serviços. Você também pode consultar agendamentos, reagendar, cancelar e compartilhar o horário pelo WhatsApp.", tip:"Toque em Novo Agendamento."}
     ]
   },
   {
     id:"acompanhar", icon:"▤", title:"Como acompanhar meus atendimentos?",
-    description:"Veja os agendamentos, filtros e informações de cada procedimento.",
+    description:"Confira os filtros, as informações do card e as opções para compartilhar ou reagendar.",
     steps:[
       {screen:"home", target:"profile-tab", title:"Vá para o Perfil", body:"Acompanhar sua agenda começa na área de perfil da cliente.", tip:"Toque em Perfil."},
       {screen:"profile", target:"filter-agendados", title:"Filtre os agendamentos", body:"Use as abas Agendados, Realizados, Cancelados e Todos para organizar a visualização.", tip:"Toque em Agendados."},
-      {screen:"profile", target:"appointment-details", title:"Abra os detalhes", body:"Cada card reúne dados do atendimento, como serviço, data, horário e situação.", tip:"Toque em Ver detalhes no card de exemplo."},
-      {screen:"details", target:"details-back", title:"Retorne aos seus atendimentos", body:"Ao terminar de consultar os detalhes, você pode voltar para os demais registros.", tip:"Toque em Voltar aos agendamentos."}
+      {screen:"profile", target:"appointment-whatsapp", title:"Compartilhe o atendimento", body:"O card mostra o serviço, a data, o horário e a situação. Use Enviar pelo WhatsApp para compartilhar os dados do agendamento.", tip:"Toque em Enviar pelo WhatsApp (simulação)."},
+      {screen:"profile", target:"appointment-reschedule", title:"Confira as opções da agenda", body:"Um atendimento agendado também permite solicitar reagendamento ou cancelamento, sujeito às regras do app e do sinal PIX.", tip:"Toque em Reagendar para encerrar este exemplo."}
     ]
   }
 ];
@@ -93,7 +93,7 @@ function screenLogin(){
 function screenHome(){
   return '<div class="mock-page">'+
    '<header class="mock-hero">'+appNav("Principal","♧")+
-   '<div class="mock-profile"><div><span class="tiny">Seja bem-vinda · CLIENTE</span><h3>Cliente Exemplo</h3><p>Escolha seu cuidado e acompanhe seus agendamentos.</p></div><div class="avatar">CE</div></div>'+
+   '<div class="mock-profile"><div><span class="tiny">Seja bem-vinda · CLIENTE</span><h3>Cliente Exemplo</h3><p>Escolha seu cuidado e acompanhe seus agendamentos.</p></div><div class="avatar" aria-label="Iniciais fictícias">CE</div></div>'+
    '<div class="search-faux"><span>O que você procura hoje?</span><span>⌕</span></div></header>'+
    '<main class="mock-content"><span class="mock-eyebrow">Atendimentos</span><h3>Escolha seu serviço</h3><p>Selecione uma categoria para visualizar as opções disponíveis.</p>'+
    '<button type="button" class="mock-category" data-tour="category-gel"><span class="category-icon">✧</span><span class="category-body"><strong>Unhas em Gel</strong><small>Aplicação, manutenção e acabamento</small></span><span class="chev">›</span></button>'+
@@ -118,11 +118,11 @@ function stepHeader(num,eyebrow,title){
  return '<div class="mock-step-header"><span class="mock-step-badge">'+num+'</span><div><small>'+eyebrow+'</small><strong>'+title+'</strong></div></div>';
 }
 function days(selected,next){
- const data=[["Seg","09"],["Ter","10"],["Qua","11"],["Qui",next?"19":"12"],["Sex","13"]];
+ const data=next?[["Seg","16"],["Ter","17"],["Qua","18"],["Qui","19"],["Sex","20"]]:[["Seg","09"],["Ter","10"],["Qua","11"],["Qui","12"],["Sex","13"]];
  return '<div class="mock-day-strip">'+data.map((d,i)=>'<button type="button" class="mock-day '+(i===3 && selected?'is-selected':'')+'"'+(i===3?' data-tour="'+(next?'reschedule-day':'booking-day')+'"':'')+'><small>'+d[0]+'</small><strong>'+d[1]+'</strong></button>').join("")+'</div>';
 }
 function times(selected,next){
- const hours=next?["09:00","09:30","10:00","14:00","15:00","15:30","16:00","16:30","17:00"]:["09:00","09:30","10:00","11:30","13:00","14:00","14:30","15:00","16:00"];
+ const hours=next?["09:00","09:15","09:30","14:00","14:15","15:15","15:30","15:45","16:00"]:["09:00","09:15","09:30","11:30","13:00","14:15","14:30","14:45","15:00"];
  const marked=next?"15:30":"14:30";
  return '<div class="mock-times">'+hours.map((h,i)=>'<button type="button" class="mock-time'+(i===2?' is-unavailable':'')+(h===marked&&selected?' is-selected':'')+'"'+(h===marked?' data-tour="'+(next?'reschedule-time':'booking-time')+'"':'')+'>'+h+'</button>').join("")+'</div>';
 }
@@ -132,10 +132,10 @@ function screenBooking(step){
  '<main class="mock-content"><div class="mock-summary"><span class="mock-eyebrow">Serviço selecionado</span><strong>✦ Blindagem</strong><small>1h30min · R$ 90,00</small></div>'+
  '<div class="mock-card"><span class="mock-eyebrow">Reserve seu horário</span><h3>Escolha a melhor data para você</h3><p>Selecione a data e depois escolha um dos horários disponíveis.</p>'+
  stepHeader("1","Data","Escolha o dia")+
- '<div class="mock-section-heading"><span class="mock-eyebrow">Novembro de 2026</span><span class="mock-count">Mês atual</span></div>'+days(hasDay,false)+
+ '<div class="mock-section-heading"><span class="mock-eyebrow">Novembro de 2026 (exemplo)</span><span class="mock-count">Calendário ilustrativo</span></div>'+days(hasDay,false)+
  '<p class="mock-inline-help mock-mt-9">Datas fictícias para o tutorial.</p>'+
  '<div class="mock-line"></div>'+stepHeader("2","Horário","Escolha um horário")+
- '<p class="mock-inline-help">Disponível / Ocupado</p>'+times(hasTime,false)+
+ '<p class="mock-inline-help">Inícios a cada 15 minutos · Disponível / Ocupado</p>'+times(hasTime,false)+
  '<div class="mock-line"></div>'+stepHeader("3","Seus dados","Finalize sua reserva")+
  '<span class="mock-label">Nome completo</span><div class="mock-field">Cliente Exemplo</div>'+
  '<span class="mock-label">Comentários adicionais <small>(opcional)</small></span><div class="mock-field mock-field--large">Conte se deseja algum cuidado específico...</div>'+
@@ -145,10 +145,15 @@ function screenBooking(step){
 }
 function screenPix(){
  return '<div class="mock-page">'+subNav("Pagamento PIX")+
- '<main class="mock-content"><div class="mock-payment-head"><span class="mock-eyebrow">Sinal para reserva</span><h3>Pagamento PIX</h3><p>No aplicativo real, pague o sinal para confirmar o agendamento.</p></div>'+
- '<div class="mock-card mock-center"><span class="mock-eyebrow">Cobrança ilustrativa</span><div class="fake-qr" aria-label="Imagem fictícia não escaneável"></div>'+
- '<strong class="mock-block-title">QR Code fictício</strong><p class="mock-mt-7">Nenhum QR Code válido foi gerado.</p><div class="mock-field">Código PIX não disponível neste tutorial</div></div>'+
- '<div class="mock-notice"><strong>Regras para Sinal:</strong> o aplicativo real informa as condições do pagamento, do cancelamento e do reagendamento.</div>'+
+ '<main class="mock-content"><div class="mock-payment-head"><span class="mock-eyebrow">Confira o valor do sinal</span><h3>Pagamento PIX</h3><p>Valores demonstrativos. O sinal pago é abatido do preço do serviço.</p></div>'+
+ '<div class="mock-card"><span class="mock-eyebrow">Resumo do agendamento · simulação</span>'+
+ '<div class="mock-payment-row"><span>Valor do serviço</span><strong>R$ 90,00</strong></div>'+
+ '<div class="mock-payment-row"><span>Sinal para confirmar</span><strong>R$ 30,00</strong></div>'+
+ '<div class="mock-payment-row"><span>Restante no atendimento</span><strong>R$ 60,00</strong></div>'+
+ '<p class="mock-inline-help">Valores exclusivamente ilustrativos. No app real, confira o resumo antes de gerar o PIX.</p></div>'+
+ '<div class="mock-card mock-center"><span class="mock-eyebrow">Cobrança ilustrativa</span><div class="fake-qr" role="img" aria-label="Imagem fictícia, não escaneável"></div>'+
+ '<strong class="mock-block-title">QR Code fictício</strong><p class="mock-mt-7">O app real também oferece PIX Copia e Cola.</p><div class="mock-field">Código PIX indisponível neste tutorial</div></div>'+
+ '<div class="mock-notice"><strong>Regras para Sinal:</strong> solicite cancelamentos e reagendamentos com pelo menos 24h de antecedência. Em situações excepcionais, consulte as regras e a profissional. O cancelamento no app não faz estorno automático.</div>'+
  '<button class="mock-primary" data-tour="pix-understood" type="button">Entendi · Continuar tutorial</button></main></div>';
 }
 function screenConfirmation(){
@@ -165,7 +170,7 @@ function profileFilters(){
 function screenProfile(){
  return '<div class="mock-page">'+subNav("Meu Perfil")+
  '<main class="mock-content"><div class="mock-card"><span class="mock-eyebrow">Minha conta</span><div class="mock-profile-info"><div><p class="mock-m-0">Seja bem-vinda</p><h3>Cliente Exemplo</h3></div><div class="avatar">CE</div></div>'+
- '<button type="button" class="mock-link mock-mt-12" data-tour="profile-contact">Dados de contato · telefone e e-mail</button>'+
+ '<button type="button" class="mock-link mock-mt-12" data-tour="profile-contact">Foto de perfil, telefone e e-mail</button>'+
  '<p class="mock-mt-9">Nenhuma informação real é utilizada.</p></div>'+
  '<div class="mock-card"><span class="mock-eyebrow">Cuidado com suas unhas</span><h3>Sua próxima manutenção</h3><p>Após aplicação de gel, uma sugestão pode ser apresentada para 21 dias depois.</p>'+
  '<div class="mock-summary"><strong>Sugestão de manutenção</strong><small>21 dias após a aplicação · apenas exemplo</small></div>'+
@@ -174,7 +179,7 @@ function screenProfile(){
  '<p>Acompanhe seus agendamentos e consulte seu histórico.</p>'+
  '<button type="button" class="mock-link" data-tour="profile-new">+ Novo Agendamento</button>'+
  profileFilters()+
- '<div class="mock-appointment"><span class="mock-pill">Agendado</span><strong class="mock-block">Blindagem</strong><small>Quinta-feira, 12/11 · 14h30 · 1h30min</small><div class="mock-actions"><button type="button" data-tour="appointment-details">Ver detalhes</button><button type="button" class="primary" data-tour="appointment-reschedule">Reagendar</button></div></div></div></main>'+tabNav("Perfil")+'</div>';
+ '<div class="mock-appointment"><span class="mock-pill">Agendado</span><strong class="mock-block">Blindagem</strong><small>Quinta-feira, 12/11 · 14h30 · 1h30min</small><div class="mock-actions mock-actions--stack"><button type="button" data-tour="appointment-whatsapp">Enviar pelo WhatsApp</button><div class="mock-actions"><button type="button" class="primary" data-tour="appointment-reschedule">Reagendar</button><button type="button">Cancelar</button></div></div></div></div></main>'+tabNav("Perfil")+'</div>';
 }
 function screenEdit(step){
  const phase=step.phase||"date",hasDay=phase!=="date",hasTime=phase==="confirm";
@@ -185,7 +190,7 @@ function screenEdit(step){
  '<div class="mock-line"></div>'+stepHeader("2","Novo horário","Escolha um horário")+times(hasTime,true)+
  '<div class="mock-summary"><span class="mock-eyebrow">Resumo fictício</span><strong>Blindagem · 1h30min</strong><small>Quinta-feira, 19 de novembro · 15h30</small></div>'+
  '<button type="button" class="mock-primary" data-tour="reschedule-confirm">Confirmar reagendamento</button></div>'+
- '<div class="mock-notice">Nenhum horário é modificado no aplicativo real. O sinal PIX não é consultado neste tutorial.</div></main></div>';
+ '<div class="mock-notice">Esta simulação não altera nenhum agendamento real, nem consulta pagamentos. No app real, aguarde a confirmação da alteração.</div></main></div>';
 }
 function screenDetails(){
  return '<div class="mock-page">'+subNav("Detalhes do atendimento")+
@@ -294,6 +299,8 @@ function renderTopics(){
  }).join("");
 }
 renderTopics();
+const topicCount = $("topicCount");
+if (topicCount) topicCount.textContent = TOPICS.length + " tutoriais";
 $("topicGrid").addEventListener("click",(event)=>{
  const card=event.target.closest("[data-topic]");
  if(card)startTopic(card.getAttribute("data-topic"));

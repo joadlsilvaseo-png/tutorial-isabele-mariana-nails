@@ -1,0 +1,32 @@
+{
+  "id": "./",
+  "name": "Guia Interativo — Isabele Mariana Nails",
+  "short_name": "Guia Isabele",
+  "description": "Aprenda a usar o aplicativo Isabele Mariana Nails em tutoriais visuais e interativos, sem agendamentos ou pagamentos reais.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#fffafb",
+  "theme_color": "#591c31",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "categories": [
+    "education",
+    "beauty"
+  ],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "./assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
