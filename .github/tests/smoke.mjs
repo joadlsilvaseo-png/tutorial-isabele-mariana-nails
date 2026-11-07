@@ -88,10 +88,11 @@ await check("Layout em Android pequeno e desktop",async()=>{
 await check("Manifesto, ícones e PWA offline",async()=>{
  await page.setViewportSize({width:390,height:844});
  await page.goto(origin+"/index.html",{waitUntil:"load"});
- const manifest=await page.evaluate(async()=>{
-  const link=document.querySelector('link[rel="manifest"]');
-  return await (await fetch(link.href)).json();
- });
+ const manifestHref=await page.locator('link[rel="manifest"]').getAttribute("href");
+ assert.equal(manifestHref,"./manifest.json");
+ const manifestResponse=await page.request.get(new URL(manifestHref,origin+"/index.html").href);
+ assert.equal(manifestResponse.status(),200);
+ const manifest=await manifestResponse.json();
  assert.ok(manifest.icons.some(x=>x.sizes==="192x192"));
  assert.ok(manifest.icons.some(x=>x.sizes==="512x512"));
  await page.waitForFunction(async()=>{
