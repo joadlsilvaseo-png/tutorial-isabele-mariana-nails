@@ -1,0 +1,35 @@
+name: Validar Guia Isabele
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser-and-pwa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+      - name: Preparar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Instalar ferramentas de teste (somente CI)
+        run: npm install --no-save --no-package-lock --no-audit --no-fund @playwright/test@1.56.1
+      - name: Preparar navegador Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Testar navegação, layout e PWA offline
+        run: node .github/tests/smoke.mjs
+      - name: Salvar capturas para inspeção
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: guia-isabele-capturas
+          path: .github/test-results/
+          if-no-files-found: ignore
