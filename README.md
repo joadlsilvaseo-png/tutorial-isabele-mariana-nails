@@ -1,13 +1,13 @@
 # Tutorial Interativo — Isabele Mariana Nails
 
-Guia visual e didático para ensinar clientes a usar o aplicativo **Isabele Mariana Nails**, com telas reconstituídas em HTML/CSS e passos interativos destacados.
+Guia visual e didático para ensinar clientes e a profissional a usar o aplicativo **Isabele Mariana Nails**, com telas reconstituídas em HTML/CSS e passos interativos destacados.
 
 ## Limites obrigatórios
 
 - **Projeto exclusivamente estático**: HTML, CSS e JavaScript do navegador.
 - **Não** utiliza Firebase, PostgreSQL, servidores, APIs, autenticação, webhooks ou pagamentos reais.
 - **Não** grava dados: sem localStorage, sessionStorage, cookies, formulários enviados ou cadastro de clientes.
-- **Não** importa scripts de produção nem configuração privada. Somente identidade visual e estrutura de telas públicas foram usadas como referência.
+- **Não** importa scripts de produção nem configuração privada. A identidade visual e o desenho de telas selecionadas, inclusive administrativas, foram usados apenas como referência para simulações fictícias.
 - Exemplos de datas, horários, nomes, preços e pagamentos são **ilustrativos**, não consultam disponibilidade real.
 - Nenhuma alteração é feita no repositório do app principal nem na Nuvé.
 
@@ -17,17 +17,16 @@ Abra `index.html` em um navegador moderno ou publique o diretório como site est
 
 ## Tutoriais
 
-- Como fazer um agendamento
-- Como funciona o sinal PIX (apenas explicação visual)
-- Como reagendar
-- O que existe no Meu Perfil
-- Como acompanhar atendimentos
+- **Para clientes:** 12 tutoriais sobre acesso, cadastro, agendamentos, PIX, perfil, instalação e notificações.
+- **Para a profissional:** 13 tutoriais sobre gestão de agenda, calendário, Assistente, serviços, clientes, PIX, Dashboard e avisos.
+- Ao abrir um link individual, a central seleciona automaticamente o público correspondente.
 
 ## Arquivos
 
 - `index.html` — estrutura da central de ajuda.
 - `styles.css` — reprodução visual independente dos padrões do frontend (vinho, rosa, cards e agenda).
-- `app.js` — renderização das telas fictícias e orientações sobre cada toque.
+- `app.js` — navegação, busca, filtros e renderização do guia.
+- `admin-tutorials.js` — roteiros e telas fictícias exclusivos dos tutoriais administrativos (sem integração).
 
 ## Segurança
 
@@ -35,7 +34,7 @@ A política CSP da página desativa conexões externas e impede submissão de fo
 
 ### Referências visuais analisadas no repositório original (somente leitura)
 
-`index.html`, `login.html`, `principal.html`, `unhas-em-gel.html`, `agendamento.html`, `meu-perfil.html` e respectivos CSS. **Nenhum script operacional foi importado.**
+`index.html`, `login.html`, `principal.html`, `agendamento.html`, `meu-perfil.html`, `admin-agendamentos.html`, `admin-calendario.html`, `admin-assistente.html`, `admin-clientes.html`, `admin-servicos.html`, `dashboard.html` e telas associadas. **Nenhum script operacional foi importado.**
 
 Este repositório é um tutorial, não um ambiente de demonstração comercial ou um sistema de agendamento.
 
@@ -95,3 +94,52 @@ notificações e edição da foto de perfil.
 4. Teste cadastro, senha, instalação, cancelamento, os quatro estados do PIX, notificações e foto.
 5. Repita os testes em tela pequena e offline após uma primeira abertura com internet.
 6. Verifique que não existem formulários enviados nem chamadas de rede para o app real.
+
+## Fase 3 — Tutoriais da profissional
+
+A central possui um **seletor de público** com duas áreas independentes:
+**Para clientes** (12 tutoriais) e **Para a profissional** (13 tutoriais).
+A página continua estática e publicamente acessível, mas as simulações
+administrativas **não abrem telas privadas do app principal** e não usam contas,
+credenciais, Firebase, PostgreSQL, Calendar, Mercado Pago ou qualquer API.
+
+Os 13 novos roteiros cobrem:
+
+1. Conhecendo a área de gestão e seus atalhos.
+2. Consultando e administrando agendamentos.
+3. Fechando e reabrindo intervalos de 15 minutos no calendário.
+4. Assistente Preventivo de Agenda (apenas sugestões consultivas).
+5. Cadastro de serviços, categorias e disponibilidade.
+6. Configuração do sinal PIX por serviço.
+7. Isenção individual de sinal PIX na ficha de clientes.
+8. Reagendamento de um atendimento com PIX pago, condicionado à confirmação.
+9. Alteração de serviço de um agendamento confirmado (recurso condicionado à habilitação).
+10. Conclusão de atendimento com valor final cobrado.
+11. Gestão de clientes, históricos e observações internas.
+12. Análise dos indicadores do Dashboard.
+13. Central de Notificações e alertas administrativos opcionais.
+
+Os links `#tutorial=pro-...` selecionam automaticamente o público
+**Para a profissional**, inclusive após atualizar a página, mantendo o
+compartilhamento individual. A busca e os filtros agora consideram
+somente o público selecionado.
+
+**Cuidados essenciais:** sinal PIX já pago não pode ser duplicado
+por uma simples alteração; reagendamento e alteração de serviço requerem
+validação e sincronização; o Assistente não bloqueia horários sozinho;
+alertas automáticos dependem de configurações operacionais habilitadas
+no sistema real. Dados, valores, nomes e datas são sempre fictícios.
+
+### Validação recomendada
+
+- Alternar entre Cliente e Profissional e confirmar as contagens 12/13.
+- Abrir os 25 tutoriais, percorrer os passos com destaque e verificar
+  navegação anterior, pular, reiniciar e conclusão.
+- Usar filtros e busca específicos da área profissional.
+- Abrir diretamente `#tutorial=pro-assistente` e depois voltar à lista:
+  deve permanecer na área da profissional.
+- Copiar e compartilhar links individuais para os novos tutoriais.
+- Recarregar em HTTPS, testar funcionamento offline após primeira abertura
+  e atualização do cache do PWA para `guia-isabele-static-v3`.
+- Confirmar que não há login, formulário enviado, PIX ou bloqueio real
+  em qualquer uma das simulações administrativas.

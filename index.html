@@ -15,6 +15,7 @@
   <link rel="apple-touch-icon" href="./assets/apple-touch-icon.png">
   <link rel="manifest" href="./manifest.json">
   <link rel="stylesheet" href="./styles.css">
+  <script src="./admin-tutorials.js" defer></script>
   <script src="./app.js" defer></script>
   <script src="./pwa.js" defer></script>
 </head>
@@ -32,11 +33,19 @@
       <section class="intro" id="intro">
         <div class="eyebrow"><span class="eyebrow-line"></span> GUIA INTERATIVO</div>
         <h1>Aprenda a usar o aplicativo, <em>um toque de cada vez.</em></h1>
-        <p class="intro-lead">Escolha o que deseja aprender e acompanhe as orientações diretamente nas telas do aplicativo. Toque nos botões destacados para praticar.</p>
+        <p class="intro-lead">Escolha um assunto e acompanhe instruções nas telas simuladas do aplicativo. Há guias para clientes e para a profissional, com botões destacados para praticar sem alterar dados reais.</p>
         <div class="privacy-note" role="note">
           <span class="privacy-icon" aria-hidden="true">✦</span>
           <p><strong>Ambiente ilustrativo e seguro.</strong> Nenhum dado é salvo. Não há login, reserva ou pagamento real.</p>
         </div>
+        <section class="audience-section" aria-label="Escolha o público do tutorial">
+          <p class="audience-title">Para quem é este tutorial?</p>
+          <div id="audienceSwitcher" class="audience-switch" role="group" aria-label="Área dos tutoriais">
+            <button type="button" class="audience-button is-active" data-audience="cliente" aria-pressed="true"><span aria-hidden="true">♡</span> Para clientes</button>
+            <button type="button" class="audience-button" data-audience="profissional" aria-pressed="false"><span aria-hidden="true">▦</span> Para a profissional</button>
+          </div>
+          <p class="audience-note" id="topicAudienceNote">Guias para aprender a usar o aplicativo como cliente.</p>
+        </section>
         <div class="tutorial-section-title">
           <div><span class="eyebrow">ESCOLHA UM ASSUNTO</span><h2>O que vamos aprender?</h2></div>
           <span class="topic-count" id="topicCount">12 tutoriais</span>

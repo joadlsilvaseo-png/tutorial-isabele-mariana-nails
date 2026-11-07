@@ -137,7 +137,8 @@ const TOPICS = [
       {screen:"photo",phase:"adjust",target:"photo-adjust",title:"Ajuste o enquadramento",body:"Na prévia, é possível recortar e ajustar o zoom antes de aplicar. Nada é enviado ou processado neste tutorial.",tip:"Toque no controle de zoom ilustrativo."},
       {screen:"photo",phase:"save",target:"photo-save",title:"Salve a nova foto",body:"Depois de aplicar o recorte, o app real permite salvar a foto. Também é possível remover uma foto personalizada.",tip:"Toque em Salvar nova foto (simulação)."}
     ]
-  }
+  },
+  ...ADMIN_TOPICS
 ];
 
 const $ = (id) => document.getElementById(id);
@@ -347,6 +348,7 @@ function screenPhoto(step){
 }
 
 function screenFor(step){
+ if(step.screen.startsWith("admin-"))return screenAdmin(step);
  switch(step.screen){
   case "login": return screenLogin();
   case "home": return screenHome();
@@ -370,12 +372,19 @@ function screenFor(step){
 function topicFor(id){return TOPICS.find((t)=>t.id===id)}
 
 /* Apenas estado transitório em memória e URL. Não há cookies nem armazenamento. */
-const CATEGORIES = [
+const CATEGORY_SETS = {
+ cliente:[
   ["todos","Todos"],["agendamentos","Agendamentos"],["pix","PIX"],
   ["conta","Conta"],["perfil","Meu Perfil"],["notificacoes","Notificações"],
   ["instalacao","Instalação"]
-];
-const topicState = {category:"todos",query:""};
+ ],
+ profissional:[
+  ["todos","Todos"],["visao","Gestão"],["agenda","Agenda"],
+  ["assistente","Assistente"],["clientes","Clientes"],["servicos","Serviços"],
+  ["pix","PIX"],["indicadores","Dashboard"],["notificacoes","Notificações"]
+ ]
+};
+const topicState = {audience:"cliente",category:"todos",query:""};
 function normalizeSearch(text){
  return String(text||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
 }
@@ -396,7 +405,7 @@ function syncRoute(){
  else showHome(false);
 }
 function renderFilters(){
- $("topicFilters").innerHTML=CATEGORIES.map(([id,label])=>
+ $("topicFilters").innerHTML=CATEGORY_SETS[topicState.audience].map(([id,label])=>
    '<button type="button" class="topic-filter'+(topicState.category===id?' is-active':'')+
    '" data-category="'+id+'" aria-pressed="'+(topicState.category===id)+'">'+label+'</button>'
  ).join("");
@@ -424,6 +433,14 @@ function showHome(changeRoute=true){
 }
 function startTopic(id,changeRoute=true){
  const topic=topicFor(id);if(!topic)return;
+ const audience=topic.audience||"cliente";
+ if(audience!==topicState.audience){
+  topicState.audience=audience;
+  topicState.category="todos";
+  topicState.query="";
+  $("topicSearch").value="";
+  renderTopics();
+ }
  runtime.topic=topic;runtime.index=0;
  if(changeRoute)updateRoute(id);
  $("shareFeedback").textContent="";
@@ -492,8 +509,10 @@ function nudge(){
  void f.offsetWidth;f.classList.add("is-nudging");
 }
 function renderTopics(){
+ const audience=topicState.audience;
+ const all=TOPICS.filter(t=>(t.audience||"cliente")===audience);
  const query=normalizeSearch(topicState.query.trim());
- const filtered=TOPICS.filter(t=>
+ const filtered=all.filter(t=>
    (topicState.category==="todos"||t.category===topicState.category) &&
    (!query||normalizeSearch(t.title+" "+t.description+" "+t.category).includes(query))
  );
@@ -505,11 +524,33 @@ function renderTopics(){
    '<span class="topic-footer"><span>'+t.steps.length+' passos guiados</span><span class="topic-arrow" aria-hidden="true">→</span></span></button>'
  ).join("");
  $("topicEmpty").hidden=filtered.length!==0;
- $("topicResultCount").textContent=filtered.length+" de "+TOPICS.length+" tutoriais";
- $("topicCount").textContent=TOPICS.length+" tutoriais";
+ $("topicResultCount").textContent=filtered.length+" de "+all.length+" tutoriais";
+ $("topicCount").textContent=all.length+" tutoriais";
+ $("topicAudienceNote").textContent=audience==="profissional"
+  ?"Guias da área administrativa. Todas as telas e informações abaixo são simulações."
+  :"Guias para aprender a usar o aplicativo como cliente.";
+ $("topicSearch").placeholder=audience==="profissional"
+  ?"Ex.: calendário, assistente, clientes, PIX..."
+  :"Ex.: PIX, cancelar, senha, notificações...";
+ document.querySelectorAll("[data-audience]").forEach(button=>{
+  const active=button.dataset.audience===audience;
+  button.classList.toggle("is-active",active);
+  button.setAttribute("aria-pressed",String(active));
+ });
  renderFilters();
 }
 renderTopics();
+$("audienceSwitcher").addEventListener("click",event=>{
+ const button=event.target.closest("[data-audience]");
+ if(!button)return;
+ const selected=button.dataset.audience;
+ if(!CATEGORY_SETS[selected]||selected===topicState.audience)return;
+ topicState.audience=selected;
+ topicState.category="todos";
+ topicState.query="";
+ $("topicSearch").value="";
+ renderTopics();
+});
 $("topicSearch").addEventListener("input",event=>{
  topicState.query=event.target.value;
  renderTopics();
